@@ -15,13 +15,18 @@ class BlogPostsController < ApplicationController
   
     def create
       @blog_post = BlogPost.new(blog_post_params)
-      @blog_post.author = Author.second
+      if Author.second.present?
+        @blog_post.author = Author.second
+      else
+        @blog_post.author = Author.create(name: 'jojo bakalman')
+      end
       if @blog_post.save
         redirect_to @blog_post
       else
         render :new, status: :unprocessable_entity
       end
     end
+    
   
     def edit
     end
