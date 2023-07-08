@@ -1,0 +1,13 @@
+<h1 class="pt-5 text-5xl font-bold text-rails-red mb-6 justify-center items-center">
+  <%= @blog_post.title %>
+</h1>
+<div class="w-full text-right">
+  <p class="pb-5 italic">
+    <%= @blog_post.author.name %>
+  </p>
+</div>
+<div class="text-xl text-gray-700 blog-post-body">
+  <%= @blog_post.body.html_safe %>
+</div>
+<%= render 'editbutton' %>
+<%= render 'homebutton' %>

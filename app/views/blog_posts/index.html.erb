@@ -1,0 +1,18 @@
+<div class="flex items-end">
+  <img src="<%= image_path 'blogs' %>" class="mr-4">
+  <%= link_to "New post", new_blog_post_path, class: "inline-block text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2" %>
+</div>
+
+<% @blog_posts.each do |blog_post| %>
+  <div class="my-4 p-10 bg-white drop-shadow-xl rounded-xl flex flex-col">
+    <h2 class="text-3xl font-bold text-black mb-2">
+      <%= link_to blog_post.title, blog_post, class: "text-rails-red underline hover:text-black" %>
+    </h2>
+    <p class="text-gray-700 text-lg blog-post-body">
+      <%= truncate(blog_post.body.html_safe, length: 200, escape: false) %>
+    </p>
+    <p class="mt-auto italic self-end">
+      <%= blog_post.author.name %>
+    </p>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wow Blogs</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= tinymce_assets %>
+<script type="text/javascript" src="/assets/tinymce.js"></script>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body class="flex justify-center items-center min-h-screen no-underline bg-dirty-white">
+
+    <div class="w-full max-w-2xl">
+      <%= yield %>
+    </div>
+
+
+  </body>
+</html>
